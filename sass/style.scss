@@ -1,0 +1,279 @@
+// frankschmitt.org — a quiet, typographic base. Carries the old site's
+// light-weight headings and #369 blue forward without the 2015 bubbles.
+
+:root {
+  --ink: #1c1f23;
+  --ink-soft: #5b636d;
+  --ink-faint: #8a929c;
+  --bg: #fdfdfc;
+  --bg-soft: #f4f4f2;
+  --rule: #e2e2de;
+  --accent: #2a5d8f;
+  --accent-hover: #1b4067;
+  --measure: 34rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8e8e6;
+    --ink-soft: #a3aab3;
+    --ink-faint: #767d86;
+    --bg: #16181b;
+    --bg-soft: #1e2125;
+    --rule: #2c3035;
+    --accent: #7fb2e0;
+    --accent-hover: #a8cdf0;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 1.25rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.0625rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 0.15em; }
+
+.skip {
+  position: absolute; left: -9999px;
+  &:focus { position: static; display: inline-block; padding: 0.5rem; }
+}
+
+// ---- masthead ----------------------------------------------------------
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 0 1.25rem;
+  border-bottom: 1px solid var(--rule);
+
+  .wordmark {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    &:hover { color: var(--accent); text-decoration: none; }
+  }
+
+  nav {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.9375rem;
+    a { color: var(--ink-soft); }
+    a:hover { color: var(--accent); text-decoration: none; }
+  }
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 0 1rem;
+}
+
+// ---- typography --------------------------------------------------------
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h1 { font-size: 1.875rem; font-weight: 600; margin: 0 0 0.5rem; }
+h2 { font-size: 1.3125rem; font-weight: 600; margin: 2.5rem 0 0.75rem; }
+h3 { font-size: 1.0625rem; font-weight: 600; margin: 2rem 0 0.5rem; }
+
+p, ul, ol, blockquote, pre, table { margin: 0 0 1.25rem; }
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1.125rem;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+img, video { max-width: 100%; height: auto; }
+
+code, pre, kbd {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+code { background: var(--bg-soft); padding: 0.12em 0.35em; border-radius: 3px; }
+
+pre {
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.875rem 1rem;
+  overflow-x: auto;
+  code { background: none; padding: 0; }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  th, td { text-align: left; padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; }
+}
+
+// ---- home --------------------------------------------------------------
+
+.intro {
+  p:first-child { font-size: 1.25rem; line-height: 1.5; color: var(--ink); }
+}
+
+.recent h2 { margin-top: 3rem; }
+.more { font-size: 0.9375rem; }
+
+// ---- post lists --------------------------------------------------------
+
+.post-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+
+  li {
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  a { font-weight: 500; }
+
+  time {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    margin-top: 0.15rem;
+  }
+
+  .excerpt {
+    margin: 0.4rem 0 0;
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+  }
+}
+
+// ---- single post -------------------------------------------------------
+
+.post {
+  header { margin-bottom: 2rem; }
+
+  .post-meta {
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+    margin: 0;
+
+    .archived {
+      display: block;
+      margin-top: 0.2rem;
+      font-style: italic;
+    }
+  }
+}
+
+.partial-note {
+  margin: 2rem 0 0;
+  padding: 0.875rem 1.125rem;
+  background: var(--bg-soft);
+  border-left: 2px solid var(--rule);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+
+  p { margin: 0; }
+}
+
+.tags {
+  margin-top: 2.5rem;
+  font-size: 0.8125rem;
+  a {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    margin-right: 0.3rem;
+    background: var(--bg-soft);
+    border-radius: 3px;
+    color: var(--ink-soft);
+  }
+}
+
+.post-nav, .pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.875rem;
+}
+
+.pagination { align-items: center; span { color: var(--ink-faint); } }
+
+// ---- résumé layout -----------------------------------------------------
+
+.page.resume {
+  h2 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--ink-faint);
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h3 {
+    margin-bottom: 0.1rem;
+    + p em { color: var(--ink-faint); font-style: normal; font-size: 0.875rem; }
+  }
+
+  ul { padding-left: 1.1rem; }
+  li { margin-bottom: 0.3rem; }
+}
+
+// ---- footer ------------------------------------------------------------
+
+.colophon {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 0 3.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.875rem;
+  color: var(--ink-faint);
+
+  .links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+
+  p { margin: 0; }
+  a { color: var(--ink-soft); }
+}
+
+@media print {
+  .masthead nav, .colophon .links, .post-nav, .pagination, .skip { display: none; }
+  body { font-size: 11pt; color: #000; background: #fff; padding: 0; }
+  a { color: #000; text-decoration: none; }
+  main { max-width: none; padding-top: 0; }
+}

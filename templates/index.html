@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="intro">
+  {{ section.content | safe }}
+</div>
+
+{% set blog = get_section(path="blog/_index.md") %}
+{% if blog.pages | length > 0 %}
+<section class="recent">
+  <h2>Recent writing</h2>
+  <ul class="post-list">
+    {% for page in blog.pages %}
+    {% if loop.index <= 8 %}
+    <li>
+      <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+      <time datetime="{{ page.date }}">{{ page.date | date(format="%B %-d, %Y") }}</time>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <p class="more"><a href="{{ blog.permalink | safe }}">All posts &rarr;</a></p>
+</section>
+{% endif %}
+{% endblock content %}

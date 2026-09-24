@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} &middot; {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+{% block og_title %}{{ page.title }}{% endblock og_title %}
+{% block canonical %}{{ page.permalink | safe }}{% endblock canonical %}
+
+{% block content %}
+<article class="page {{ page.extra.layout | default(value='') }}">
+  <h1>{{ page.title }}</h1>
+  {{ page.content | safe }}
+</article>
+{% endblock content %}

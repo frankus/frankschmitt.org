@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Writing &middot; {{ config.title }}{% endblock title %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+{{ section.content | safe }}
+
+{% if paginator %}{% set posts = paginator.pages %}{% else %}{% set posts = section.pages %}{% endif %}
+
+<ul class="post-list archive">
+  {% for page in posts %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <time datetime="{{ page.date }}">{{ page.date | date(format="%B %-d, %Y") }}</time>
+    {% if page.description %}<p class="excerpt">{{ page.description }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+{% if paginator and paginator.number_pagers > 1 %}
+<nav class="pagination">
+  {% if paginator.previous %}<a href="{{ paginator.previous | safe }}">&larr; Newer</a>{% endif %}
+  <span>Page {{ paginator.current_index }} of {{ paginator.number_pagers }}</span>
+  {% if paginator.next %}<a href="{{ paginator.next | safe }}">Older &rarr;</a>{% endif %}
+</nav>
+{% endif %}
+{% endblock content %}

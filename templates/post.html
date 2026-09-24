@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} &middot; {{ config.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+{% block og_title %}{{ page.title }}{% endblock og_title %}
+{% block og_type %}article{% endblock og_type %}
+{% block canonical %}{{ page.permalink | safe }}{% endblock canonical %}
+
+{% block content %}
+<article class="post">
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date }}">{{ page.date | date(format="%B %-d, %Y") }}</time>
+      {% if page.extra.archived_from %}
+      <span class="archived">Originally published at {{ page.extra.archived_from }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  {{ page.content | safe }}
+
+  {% if page.extra.partial %}
+  <aside class="partial-note">
+    <p>Only the opening of this post survives. The original site cut the rest
+    behind a &ldquo;read more&rdquo; link, and no complete copy of that page was
+    ever captured by the Internet Archive.</p>
+  </aside>
+  {% endif %}
+
+  {% if page.taxonomies.tags %}
+  <p class="tags">
+    {% for tag in page.taxonomies.tags %}
+    <a href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}">{{ tag }}</a>
+    {% endfor %}
+  </p>
+  {% endif %}
+
+  <nav class="post-nav">
+    {% if page.earlier %}<a class="prev" href="{{ page.earlier.permalink | safe }}">&larr; {{ page.earlier.title }}</a>{% endif %}
+    {% if page.later %}<a class="next" href="{{ page.later.permalink | safe }}">{{ page.later.title }} &rarr;</a>{% endif %}
+  </nav>
+</article>
+{% endblock content %}

@@ -1,0 +1,41 @@
+base_url = "https://frankschmitt.org"
+title = "Frank Schmitt"
+description = "Writing on software, design, and whatever else holds still long enough."
+author = "Frank Schmitt"
+
+compile_sass = true
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+taxonomies = [
+  { name = "tags", feed = true, paginate_by = 20 },
+]
+
+[markdown]
+smart_punctuation = true
+bottom_footnotes = true
+
+[markdown.highlighting]
+light_theme = "github-light"
+dark_theme = "github-dark"
+
+[extra]
+email = "frank@frankschmitt.org"
+
+# Shown in the footer and on the home page.
+[[extra.links]]
+name = "GitHub"
+url = "https://github.com/frankus"
+
+[[extra.links]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/fschmi"
+
+[[extra.links]]
+name = "Stack Overflow"
+url = "https://stackoverflow.com/users/27951/frank-schmitt"
+
+[[extra.links]]
+name = "fc-o.ws"
+url = "http://fc-o.ws/"

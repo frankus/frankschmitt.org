@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+  <link rel="stylesheet" href="{{ get_url(path='style.css', trailing_slash=false) | safe }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml', trailing_slash=false) | safe }}">
+  <link rel="canonical" href="{% block canonical %}{{ current_url | default(value=config.base_url) | safe }}{% endblock canonical %}">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock og_title %}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <a class="wordmark" href="{{ config.base_url | safe }}">{{ config.title }}</a>
+    <nav>
+      <a href="{{ get_url(path='@/blog/_index.md') | safe }}">Writing</a>
+      <a href="{{ get_url(path='@/about.md') | safe }}">About</a>
+      <a href="{{ get_url(path='atom.xml', trailing_slash=false) | safe }}">Feed</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    {% block content %}{% endblock content %}
+  </main>
+
+  <footer class="colophon">
+    <ul class="links">
+      {% for link in config.extra.links %}
+      <li><a href="{{ link.url }}" rel="me">{{ link.name }}</a></li>
+      {% endfor %}
+    </ul>
+    <p>&copy; {{ now() | date(format="%Y") }} {{ config.author }} &middot;
+       <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></p>
+  </footer>
+</body>
+</html>
