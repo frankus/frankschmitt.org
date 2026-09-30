@@ -19,5 +19,6 @@ The best way to reach me is [frank@frankschmitt.org](mailto:frank@frankschmitt.o
 ## This site
 
 Built with [Zola](https://www.getzola.org/), hosted on GitHub Pages, and kept
-deliberately plain. Posts dated before 2011 were recovered from earlier
-incarnations of this domain and are reproduced as written, typos and all.
+deliberately plain. A couple of posts predate it by a long way — recovered from
+earlier incarnations of this domain and from an old blog, and reproduced as
+written. The rest of that material is still where it was.

@@ -2,6 +2,8 @@
 import re
 from html.parser import HTMLParser
 
+BLOCK_IN_P = {"pre", "blockquote", "ul", "ol", "table", "hr",
+                "h1", "h2", "h3", "h4", "h5", "h6"}
 VOID = {"br", "hr", "img", "input", "meta", "link"}
 INLINE = {"a", "em", "i", "strong", "b", "code", "span", "sub", "sup", "abbr", "u", "s", "strike", "del", "cite", "small", "tt"}
 
@@ -111,9 +113,17 @@ def block(node, link_map, depth=0):
             continue
         flush()
         if t == "p":
-            s = inline(k, link_map).strip()
-            if s:
-                chunks.append(s)
+            # Some sources nest block elements inside <p> (WordPress wrapped
+            # <pre><code> that way). Flattening those to inline code loses the
+            # code block, so recurse when a paragraph holds block children.
+            if any(not isinstance(c, str) and c.tag in BLOCK_IN_P for c in k.kids):
+                inner = block(k, link_map, depth + 1)
+                if inner.strip():
+                    chunks.append(inner)
+            else:
+                s = inline(k, link_map).strip()
+                if s:
+                    chunks.append(s)
         elif t == "blockquote":
             inner = block(k, link_map, depth + 1)
             chunks.append("\n".join("> " + l if l else ">" for l in inner.split("\n")))
