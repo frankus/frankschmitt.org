@@ -1,16 +1,20 @@
 +++
 title = "About"
 template = "page.html"
-description = "About Frank Schmitt — iOS, Mac, and web software."
+description = "About Frank Schmitt — senior iOS engineer in Bellingham, Washington."
 +++
 
-<!-- TODO: replace with your own account. Only verified facts are here. -->
+I'm Frank Schmitt, a senior iOS engineer in Bellingham, Washington.
 
-I'm Frank Schmitt. I write software, mostly for Apple platforms, and I run
-[Laika Systems](http://laikasys.com/), which builds custom iOS, Mac, and web
-software.
+I spent eleven years at Apptentive (later Alchemer) as the technical owner of
+ApptentiveKit, its iOS SDK — through a ground-up rewrite from Objective-C to
+Swift, a migration from Grand Central Dispatch to structured concurrency, and
+thirty releases where a broken API would have cascaded into thousands of builds
+I couldn't see. Before that, iOS work at Moz and MacroView Labs, and before
+that, embedded software for electric-vehicle battery management.
 
-Code lives on [GitHub](https://github.com/frankus). Answers, occasionally, on
+The [résumé](@/resume.md) has the full account. Code lives on
+[GitHub](https://github.com/frankus). Answers, occasionally, on
 [Stack Overflow](https://stackoverflow.com/users/27951/frank-schmitt). Work
 history on [LinkedIn](https://www.linkedin.com/in/fschmi).
 
