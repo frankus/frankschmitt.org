@@ -13,7 +13,7 @@ This works great for standard situations, where you’re facing the fastener and
 
 My solution to this (mine only in the sense that I arrived at it independently) is both completely obvious and yet unheard of by most people. Engineers refer to the standard way in which fasteners are threaded as “right-handed.” Only a few items on Earth (for instance the left pedal on most bicycles and the left axle nut on some cars) use the other orientation (called, you guessed it, “left-handed threads”). It turns out this nomenclature has some basis in the real world.
 
-[![The Right-Hand Rule](/archive/right_hand_rule_simple.png)](http://commons.wikimedia.org/wiki/Image:Right_hand_rule_simple.png)
+[![The Right-Hand Rule](http://frankschmitt.org/wp-content/uploads/2008/10/right_hand_rule_simple.png)](http://commons.wikimedia.org/wiki/Image:Right_hand_rule_simple.png)
 
 The Right-Hand Rule
 

@@ -5,6 +5,10 @@ from html.parser import HTMLParser
 BLOCK_IN_P = {"pre", "blockquote", "ul", "ol", "table", "hr",
                 "h1", "h2", "h3", "h4", "h5", "h6"}
 VOID = {"br", "hr", "img", "input", "meta", "link"}
+# A new block-level element implicitly closes an open <p>; old HTML 4 pages
+# (kuro5hin, 2006-era blogs) use <p> as a separator and never close it.
+CLOSES_P = {"p", "div", "ul", "ol", "table", "blockquote", "pre", "hr",
+            "h1", "h2", "h3", "h4", "h5", "h6", "address", "form", "center"}
 INLINE = {"a", "em", "i", "strong", "b", "code", "span", "sub", "sup", "abbr", "u", "s", "strike", "del", "cite", "small", "tt"}
 
 
@@ -21,10 +25,24 @@ class Tree(HTMLParser):
         self.stack = [self.root]
 
     def handle_starttag(self, tag, attrs):
+        if tag in CLOSES_P:
+            self._close_open("p")
+        if tag == "li":
+            self._close_open("li")
         n = Node(tag, attrs)
         self.stack[-1].kids.append(n)
         if tag not in VOID:
             self.stack.append(n)
+
+    def _close_open(self, tag):
+        """Pop an open <tag> if only inline elements sit above it."""
+        for i in range(len(self.stack) - 1, 0, -1):
+            t = self.stack[i].tag
+            if t == tag:
+                del self.stack[i:]
+                return
+            if t not in INLINE:
+                return
 
     def handle_startendtag(self, tag, attrs):
         self.stack[-1].kids.append(Node(tag, attrs))
@@ -72,6 +90,8 @@ def inline(node, link_map):
             out.append(f"`{raw}`" if raw.strip() else raw)
         elif t in ("del", "s", "strike"):
             out.append(f"~~{txt}~~")
+        elif t in ("sup", "sub"):
+            out.append(f"<{t}>{txt}</{t}>" if txt.strip() else txt)
         elif t == "br":
             out.append("  \n")
         elif t == "img":

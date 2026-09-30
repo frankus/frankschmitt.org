@@ -10,7 +10,7 @@ tags = ["mac", "projects"]
 archived_from = "frankschmitt.org, 2008"
 +++
 
-**Update:** [Here](/blog/easier-sub-account/)’s an easier way.
+**Update:** [Here](http://frankschmitt.org/2008/01/easier-sub-account)’s an easier way.
 
 In anticipation of getting an iPhone for Christmas, I moved my personal email account from my hosting company to [GMail](http://gmail.com/), using [Google Apps for my domain](https://www.google.com/a/). GMail gives me [IMAP](http://5thirtyone.com/archives/862), first-rate spam filtering, and more storage than I can shake a stick at. I couldn’t be happier with my arrangement, in particular how well it works with my iPhone.
 
