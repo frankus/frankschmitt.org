@@ -27,4 +27,5 @@ The best way to reach me is [frank@frankschmitt.org](mailto:frank@frankschmitt.o
 Built with [Zola](https://www.getzola.org/), hosted on GitHub Pages, and kept
 deliberately plain. A couple of posts predate it by a long way — recovered from
 earlier incarnations of this domain and from an old blog, and reproduced as
-written. The rest of that material is still where it was.
+written bar a handful of typos. The rest of that material is still where it
+was.
