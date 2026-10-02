@@ -15,6 +15,9 @@ This is the edited, expanded version of the blogspot post "Diesel Power wins at
 Le Mans" (2006-06-20), which opens by telling the reader to go read this one
 instead. About twice the length, with sources and a footnote.
 
+**Published on the site** as `/blog/diesel-wins-at-le-mans/`; the markdown now
+lives in `content/blog/`. Only the raw capture remains here.
+
 `diesel-wins-at-le-mans.capture.html` is the raw Wayback capture, kept because
 kuro5hin served cp1252 with no declared charset and the markdown conversion
 needed it.

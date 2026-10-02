@@ -4,14 +4,16 @@ template = "page.html"
 description = "About Frank Schmitt — senior iOS engineer in Bellingham, Washington."
 +++
 
-I'm Frank Schmitt, a senior iOS engineer in Bellingham, Washington.
+I'm Frank Schmitt,  in Bellingham, Washington.
 
-I spent eleven years at Apptentive (later Alchemer) as the technical owner of
+Job-wise, I spent the last eleven-plus years at Apptentive (later Alchemer)
+as the technical owner of
 ApptentiveKit, its iOS SDK — through a ground-up rewrite from Objective-C to
 Swift, a migration from Grand Central Dispatch to structured concurrency, and
 thirty releases where a broken API would have cascaded into thousands of builds
 I couldn't see. Before that, iOS work at Moz and MacroView Labs, and before
-that, embedded software for electric-vehicle battery management.
+that, a decade in web development, prceeded by a year working on embedded 
+software for electric-vehicle battery management and fast charging.
 
 The [résumé](@/resume.md) has the full account. Code lives on
 [GitHub](https://github.com/frankus). Answers, occasionally, on
