@@ -53,6 +53,7 @@ Push to `main`; the workflow builds and deploys.
 | `sass/style.scss` | The whole stylesheet, compiled to `/style.css` |
 | `static/` | Verbatim assets, including `CNAME` for the custom domain |
 | `archive-sources/` | Raw exports of the old blogs — see below |
+| `tools/` | Archive import scripts and the redirect-stub generator |
 
 ## archive-sources/
 

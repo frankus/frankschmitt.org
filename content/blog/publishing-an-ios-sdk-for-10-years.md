@@ -142,8 +142,6 @@ This is just one example but the pattern repeated itself often. As an SDK author
 
 The common thread here is that your SDK is a guest in someone else’s app, and should aim to be as unobtrusive as possible: minimal integration steps, keeps working silently in the background, and requires zero attention until a new feature makes the upgrade worthwhile. 
 
-But even developing your own app 
-
 The best compliment an SDK author can get is silence—no crash reports, no integration questions, no GitHub issues, and nothing overloading our server.
 
 [^1]: There is a potential way to sidestep both of these—but until recently it required violating the commandment against third-party dependencies. That is to ship your business logic as JavaScript code. JavaScript runs natively on the web, and via a built-in framework (`JavaScriptCore`) on iOS, and Android recently added decent first-party support for doing this. This avoids the “SDK code is forever” because the code can be updated in flight, and avoids the need to “write everything twice” by being able to run on almost every platform of interest.
